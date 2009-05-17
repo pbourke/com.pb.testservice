@@ -1,0 +1,9 @@
+Bundle-Name: TestBundle-Patrick
+Bundle-Description: Frobulates the baz
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.pb.testservice
+Bundle-Version: 1.0.0
+Excluded-Exports: 
+ *.impl*
+Unversioned-Imports: 
+ *
