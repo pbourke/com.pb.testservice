@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!-- regular spring configuration file defining the beans for this
+       bundle. The configuration of OSGi definitions is kept in a separate 
+       configuration file so that this file can easily be used
+       for integration testing outside of an OSGi environment -->
+       
+       <bean id="testClient" class="com.pb.client.TestClient">
+       		<property name="testService" ref="testService" />
+       </bean>
+       
+       <bean id="timerFactoryBean" class="org.springframework.scheduling.timer.TimerFactoryBean">
+       		<property name="scheduledTimerTasks">
+       			<bean class="org.springframework.scheduling.timer.ScheduledTimerTask">
+       					<property name="period" value="2000" />
+       					<property name="timerTask">
+       						<bean class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
+       							<property name="targetObject" ref="testClient" />
+       							<property name="targetMethod" value="callService" />
+       						</bean>
+       					</property>
+       			</bean>
+       		</property>
+       </bean>
+</beans>

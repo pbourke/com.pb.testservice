@@ -1,0 +1,9 @@
+Bundle-Name: TestClient
+Bundle-Description: Test client bundle
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.pb.testclient
+Bundle-Version: 1.0.0
+Excluded-Exports: 
+ *
+Unversioned-Imports: 
+ *
